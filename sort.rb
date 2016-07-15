@@ -1,3 +1,5 @@
+#sort.rb
+
 def insertion_sort(arr)
   sorted = []<< arr.shift
   until arr.empty?
@@ -16,5 +18,43 @@ def insert(sorted_array, right_index, value)
   sorted_array[i+1] = value;
 end
 
-p insertion_sort([1,3,2])
-p insertion_sort( [1,3,7,2,5] )
+#iterate through unsorted array
+#if current element is > than next, swap positions
+#start from beginning of array until sorted
+
+#  [3 , 2 , 1]
+#  [2, 3,  1]
+#  [2, 1,  3]
+# [1, 2 ,3 ]
+def bubble_sort(arr)
+
+  temp = arr
+  i = 0
+  while i < arr.length - 1
+    index_one = 0
+    index_two = index_one + 1
+    
+    (arr.length - 1 - i).times do
+      if arr[index_one] > arr[index_two]
+        #swaps
+        temp = arr[index_one] 
+        arr[index_one] = arr[index_two]
+        arr[index_two] = temp
+      end
+      index_one += 1
+      index_two += 1
+    end
+    i += 1
+  end
+  arr
+end
+
+#testing
+
+a = [1,3,7,2,5]
+p bubble_sort(a)
+
+#insertion_sort
+# p insertion_sort([1,3,2])
+# p insertion_sort( [1,3,7,2,5] )
+

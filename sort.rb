@@ -41,36 +41,44 @@ def bubble_sort(arr)
 end
 
 
-def merge_sort(array)
+def merge_sort(arr)
   # // if the array is one element long, just return it
-
+  return arr if arr.length == 1
   # // mergeSort() the left half of the array
-
+  left = merge_sort(arr[0..arr.length/2-1])
   # // mergeSort() the right half of the array
+  right = merge_sort(arr[arr.length/2..-1])
 
   # // merge() the two halves
-
+  fin = merge(left, right)
   # // return the merged array
+  fin
 end
 
+#[1, 2]  [0,3]
 def merge(leftArr, rightArr)
-  # // var newArr = [];
   newArr = []
-  # // compare leftArr[0] and rightArr[0]
-  # // whichever is smaller, push it onto newArr
+  # compare leftArr[0] and rightArr[0]
+  # whichever is smaller, push it onto newArr
   while leftArr.length + rightArr.length > 0
-    binding.pry
-    if  !(leftArr.empty?) && !(leftArr[0] < rightArr[0])
+    if leftArr.empty?
+      newArr << rightArr.shift 
+    elsif rightArr.empty?
+      newArr << leftArr.shift
+    elsif  leftArr[0] > rightArr[0]
       newArr << rightArr.shift
-    elsif !(rightArr.empty?) && !(leftArr[0] >= rightArr[0])
+    else
       newArr << leftArr.shift
     end
   end
   newArr
 end
 #testing
+#mergesort
+p merge_sort( [1,3,7,2,5] )
 
-p merge([1,2], [0, 3])
+#merge
+#p merge([1,2,4,5], [0,3,10])
 
 #insertion_sort
 # p insertion_sort([1,3,2])

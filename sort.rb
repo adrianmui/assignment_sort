@@ -18,16 +18,7 @@ def insert(sorted_array, right_index, value)
   sorted_array[i+1] = value;
 end
 
-#iterate through unsorted array
-#if current element is > than next, swap positions
-#start from beginning of array until sorted
-
-#  [3 , 2 , 1]
-#  [2, 3,  1]
-#  [2, 1,  3]
-# [1, 2 ,3 ]
 def bubble_sort(arr)
-
   temp = arr
   i = 0
   while i < arr.length - 1
@@ -49,12 +40,16 @@ def bubble_sort(arr)
   arr
 end
 
+
 #testing
 
-a = [1,3,7,2,5]
-p bubble_sort(a)
+
 
 #insertion_sort
 # p insertion_sort([1,3,2])
 # p insertion_sort( [1,3,7,2,5] )
+
+#bubble_sort
+#a = [1,3,7,2,5]
+#p bubble_sort(a)
 
